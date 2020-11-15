@@ -5,11 +5,20 @@
 
 ///////////////////////////////////////
 
-const testPromise = function() {
-  return new Promise( function( resolve, reject ){
-    const x = 23
-    reject(`Reject ${x}`)
-  })
-}
+const testPromiseResolve = function () {
+  return new Promise(function (resolve, reject) {
+    const x = 23;
+    resolve(`Reject ${x}`);
+  });
+};
 
-testPromise().catch(err => console.log(err))
+testPromiseResolve().catch((err) => console.log(err));
+
+const testPromiseReject = function () {
+  return new Promise(function (resolve, reject) {
+    const x = 23;
+    reject(`Reject ${x}`);
+  });
+};
+
+testPromiseReject().catch((err) => console.log(err));
