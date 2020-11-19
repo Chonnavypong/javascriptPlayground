@@ -18,7 +18,9 @@ function mainFn(param1, param2, callback) {
   let err, data;
   if (param1 + param2 < 10) err = "ERROR sum is lower than 10";
   if (param1 + param2 >= 10) data = param1 + param2;
-  callback(err, data);
+  callback(err = undefined, data)
+  // if (! err) callback(data)
+  // if (err) callback( err = undefined, data)
 }
 
 mainFn(2, 3, showResult);
@@ -43,6 +45,10 @@ try {
 }
 
 mainFn(10, 20, (_, data) => {
+  // if (err) throw new Error ('It Error')
+  console.log("Mutation data to : ", (data += 20));
+});
+mainFn(10, 20, ( data) => {
   // if (err) throw new Error ('It Error')
   console.log("Mutation data to : ", (data += 20));
 });
